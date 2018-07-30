@@ -36,6 +36,14 @@ export default {
     return {
       current: 0
     }
+  },
+  methods: {
+    nextStep () {
+      this.current++;
+    },
+    prevStep () {
+      this.current--;
+    }
   }
 }
 </script>

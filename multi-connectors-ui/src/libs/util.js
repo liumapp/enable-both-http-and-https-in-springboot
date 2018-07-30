@@ -19,13 +19,11 @@ util.title = function (title) {
   window.document.title = title;
 };
 
-const ajaxUrl = 'http://localhost:2020/';
-const onlineSocketUrl = 'ws://localhost:2020/onlineSocket';
-const convertingResultSocket = 'ws://localhost:2020/convertingSocket';
+const ajaxHttpUrl = 'http://localhost:2525/';
+const ajaxHttpsUrl = 'https://localhost:2525';
 
-util.ajaxUrl = ajaxUrl;
-util.onlineSocketUrl = onlineSocketUrl;
-util.convertingResultSocket = convertingResultSocket;
+util.ajaxHttpUrl = ajaxHttpUrl;
+util.ajaxHttpsUrl = ajaxHttpsUrl;
 
 util.ajax = axios.create({
   baseURL: ajaxUrl,
