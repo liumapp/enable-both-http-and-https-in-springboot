@@ -12,3 +12,9 @@ mybatis:
   mapper-locations: classpath*:mappers/*Mapper.xml
 server:
   port: 2525
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: 123456
+    keyStoreType: PKCS12
+    keyAlias: liumapp
+
