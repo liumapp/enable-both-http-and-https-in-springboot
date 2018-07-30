@@ -18,7 +18,7 @@
       <Button type="success" @click="submitGet">点我</Button>
       </Col>
       <Col span="2">
-      <Tooltip content="Right Center text" placement="right">
+      <Tooltip :content="getParamDesc" placement="right">
         <Icon type="help-circled" size="25"></Icon>
       </Tooltip>
       </Col>
@@ -30,7 +30,7 @@
       <Button type="success" @click="submitPost">点我</Button>
       </Col>
       <Col span="2">
-      <Tooltip content="Right Center text" placement="right">
+      <Tooltip :content="postParamDesc" placement="right">
         <Icon type="help-circled" size="25"></Icon>
       </Tooltip>
       </Col>
@@ -48,6 +48,12 @@ import util from '@/libs/util'
 
 export default {
   name: 'test-https',
+  data () {
+    return {
+      getParamDesc: 'this is getParamDesc',
+      postParamDesc: 'this is postParamDesc'
+    }
+  },
   methods: {
     submitGet () {
 
