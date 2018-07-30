@@ -7,11 +7,72 @@
  */
 <template>
   <div>
-    this is https test page .
+    <br>
+    <Row>
+      <Col span="4" offset="8">鼠标移动到<Icon type="help-circled"></Icon>来查看参数</Col>
+    </Row>
+    <br>
+    <Row class="keep-center">
+      <Col span="4" offset="8"> 发起GET请求获取响应：</Col>
+      <Col span="2">
+      <Button type="success" @click="submitGet">点我</Button>
+      </Col>
+      <Col span="2">
+      <Tooltip content="Right Center text" placement="right">
+        <Icon type="help-circled" size="25"></Icon>
+      </Tooltip>
+      </Col>
+    </Row>
+    <br>
+    <Row class="keep-center">
+      <Col span="4" offset="8">发起POST请求获取响应：</Col>
+      <Col span="2">
+      <Button type="success" @click="submitPost">点我</Button>
+      </Col>
+      <Col span="2">
+      <Tooltip content="Right Center text" placement="right">
+        <Icon type="help-circled" size="25"></Icon>
+      </Tooltip>
+      </Col>
+    </Row>
+    <br>
+    <Row>
+      <Col span="4" offset="8">
+      <Button type="primary" @click="goPrev">去上一步看看</Button>
+      </Col>
+    </Row>
   </div>
 </template>
 <script>
+import util from '@/libs/util'
+
 export default {
-  name: 'test-https'
+  name: 'test-https',
+  methods: {
+    submitGet () {
+
+    },
+    submitPost () {
+
+    },
+    goPrev () {
+      this.$emit('prev');
+    }
+  }
 }
 </script>
+<style lang="less">
+  .keep-center {
+
+  .ivu-col {
+    height: 50px;
+    line-height: 50px;
+
+  .ivu-icon {
+    padding-top: 11px;
+  }
+
+  }
+
+  }
+</style>

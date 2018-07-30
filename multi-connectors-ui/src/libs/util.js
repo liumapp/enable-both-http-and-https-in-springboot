@@ -20,20 +20,19 @@ util.title = function (title) {
 };
 
 const ajaxHttpUrl = 'http://localhost:2525/';
-const ajaxHttpsUrl = 'https://localhost:2525';
+const ajaxHttpsUrl = 'https://localhost:2525/';
 
 util.ajaxHttpUrl = ajaxHttpUrl;
 util.ajaxHttpsUrl = ajaxHttpsUrl;
 
 util.ajax = axios.create({
-  baseURL: ajaxUrl,
   timeout: 30000
 });
 
-util.post = function (url, data) {
+util.httpPost = function (url, data) {
   return axios({
     method: 'post',
-    baseURL: ajaxUrl,
+    baseURL: ajaxHttpUrl,
     url,
     data: data,
     timeout: 10000,
@@ -48,10 +47,46 @@ util.post = function (url, data) {
   )
 };
 
-util.get = function (url, data) {
+util.httpsPost = function (url, data) {
+  return axios({
+    method: 'post',
+    baseURL: ajaxHttpsUrl,
+    url,
+    data: data,
+    timeout: 10000,
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json; charset=UTF-8',
+    }
+  }).then(
+    (response) => {
+      return this.checkStatus(response);
+    }
+  )
+};
+
+util.httpGet = function (url, data) {
   return axios({
     method: 'get',
-    baseURL: ajaxUrl,
+    baseURL: ajaxHttpUrl,
+    url,
+    data: data,
+    timeout: 5000,
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json; charset=UTF-8',
+    }
+  }).then (
+    (response) => {
+      return this.checkStatus(response);
+    }
+  );
+};
+
+util.httpsGet = function (url, data) {
+  return axios({
+    method: 'get',
+    baseURL: ajaxHttpsUrl,
     url,
     data: data,
     timeout: 5000,

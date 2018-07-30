@@ -14,8 +14,8 @@
           <Step title="http协议测试" content="前端以GET/POST发起http请求"></Step>
           <Step title="https协议测试" content="前端以GET/POST发起https请求"></Step>
         </Steps>
-        <test-http v-if="current == 0"></test-http>
-        <test-https v-else-if="current == 1"></test-https>
+        <test-http v-if="current == 0" @next="nextStep"></test-http>
+        <test-https v-else-if="current == 1" @prev="prevStep"></test-https>
         <div v-else>
           wrong current value.
         </div>

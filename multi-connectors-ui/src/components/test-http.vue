@@ -38,7 +38,7 @@
     <br>
     <Row>
       <Col span="4" offset="8">
-        <Button type="primary" @click="next">去下一步看看</Button>
+        <Button type="primary" @click="goNext">去下一步看看</Button>
       </Col>
     </Row>
   </div>
@@ -54,6 +54,9 @@ export default {
     },
     submitPost () {
 
+    },
+    goNext () {
+      this.$emit('next');
     }
   }
 }
