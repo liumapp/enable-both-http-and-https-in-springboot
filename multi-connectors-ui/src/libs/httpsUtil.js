@@ -10,6 +10,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Message } from 'iview';
 
+var httpAdapter = require('axios/lib/adapters/http');
+
 let httpsUtil = {
 
 };
@@ -23,12 +25,22 @@ const ajaxUrl = 'https://localhost:2525/';
 
 httpsUtil.ajaxUrl = ajaxUrl;
 
-httpsUtil.ajax = axios.create({
-  timeout: 30000
+httpsUtil.http = axios.create({
+
+  adapter: httpAdapter,
+
+  baseURL: ajaxUrl,
+
+  timeout:5000,
+
+  headers: {
+    'Content-Type':'application/json; charset=UTF-8'
+  }
+
 });
 
 httpsUtil.post = function (url, data) {
-  return axios({
+  return this.http({
     method: 'post',
     baseURL: ajaxUrl,
     url,
@@ -46,7 +58,7 @@ httpsUtil.post = function (url, data) {
 };
 
 httpsUtil.get = function (url, data) {
-  return axios({
+  return this.http({
     method: 'get',
     baseURL: ajaxUrl,
     url,

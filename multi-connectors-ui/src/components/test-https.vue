@@ -53,7 +53,7 @@
   </div>
 </template>
 <script>
-import util from '@/libs/util'
+import httpsUtil from '@/libs/httpsUtil'
 
 export default {
   name: 'test-https',
@@ -63,12 +63,12 @@ export default {
   },
   methods: {
     submitGet () {
-      util.httpsGet('/get?number=' + 1).then(res => {
+      httpsUtil.get('/get?number=' + 1).then(res => {
         this.$Message.success('get result from backend:' + res.data.result);
       });
     },
     submitPost () {
-      util.httpsPost('/post', {number: 2}).then(res => {
+      httpsUtil.post('/post', {number: 2}).then(res => {
         this.$Message.success('get result from backend:' +res.data.result);
       })
     },
