@@ -18,8 +18,12 @@
         <Button type="success" @click="submitGet">点我</Button>
       </Col>
       <Col span="2">
-        <Tooltip :content="getParamDesc" placement="right">
+        <Tooltip placement="right">
           <Icon type="help-circled" size="25"></Icon>
+          <div slot="content">
+            <p>向后端传一个number=1，</p>
+            <p>后端进行自增后获取返回结果</p>
+          </div>
         </Tooltip>
       </Col>
     </Row>
@@ -30,8 +34,12 @@
         <Button type="success" @click="submitPost">点我</Button>
       </Col>
       <Col span="2">
-        <Tooltip :content="postParamDesc" placement="right">
+        <Tooltip placement="right">
           <Icon type="help-circled" size="25"></Icon>
+          <div slot="content">
+            <p>向后端传一个number=2，</p>
+            <p>后端进行乘2后获取返回结果</p>
+          </div>
         </Tooltip>
       </Col>
     </Row>
@@ -50,8 +58,7 @@ export default {
   name: 'test-http',
   data () {
     return {
-      getParamDesc: '向后端传一个number=1，后端进行自增后获取返回结果',
-      postParamDesc: '向后端传一个number=2，后端进行乘2操作后获取返回结果'
+
     }
   },
   methods: {
