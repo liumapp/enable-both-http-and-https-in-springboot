@@ -18,7 +18,7 @@
         <Button type="success" @click="submitGet">点我</Button>
       </Col>
       <Col span="2">
-        <Tooltip content="Right Center text" placement="right">
+        <Tooltip :content="getParamDesc" placement="right">
           <Icon type="help-circled" size="25"></Icon>
         </Tooltip>
       </Col>
@@ -30,7 +30,7 @@
         <Button type="success" @click="submitPost">点我</Button>
       </Col>
       <Col span="2">
-        <Tooltip content="Right Center text" placement="right">
+        <Tooltip :content="postParamDesc" placement="right">
           <Icon type="help-circled" size="25"></Icon>
         </Tooltip>
       </Col>
@@ -48,12 +48,22 @@ import util from '@/libs/util'
 
 export default {
   name: 'test-http',
+  data () {
+    return {
+      getParamDesc: '向后端传一个number=1，后端进行自增后获取返回结果',
+      postParamDesc: '向后端传一个number=2，后端进行乘2操作后获取返回结果'
+    }
+  },
   methods: {
     submitGet () {
-
+      util.httpGet('/get?number=' + 1).then(res => {
+        this.$Message.success('get result from backend:' + res.data.result);
+      });
     },
     submitPost () {
-
+      util.httpPost('/post', {number: 2}).then(res => {
+        this.$Message.success('get result from backend:' +res.data.result);
+      })
     },
     goNext () {
       this.$emit('next');
