@@ -9,24 +9,24 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Message } from 'iview';
 
-let util = {
+let httpUtil = {
 
 };
 
-util.title = function (title) {
+httpUtil.title = function (title) {
   title = title || 'multi connectiors demo';
   window.document.title = title;
 };
 
 const ajaxUrl = 'http://localhost:2525/';
 
-util.ajaxUrl = ajaxUrl;
+httpUtil.ajaxUrl = ajaxUrl;
 
-util.ajax = axios.create({
+httpUtil.ajax = axios.create({
   timeout: 30000
 });
 
-util.post = function (url, data) {
+httpUtil.post = function (url, data) {
   return axios({
     method: 'post',
     baseURL: ajaxUrl,
@@ -44,7 +44,7 @@ util.post = function (url, data) {
   )
 };
 
-util.get = function (url, data) {
+httpUtil.get = function (url, data) {
   return axios({
     method: 'get',
     baseURL: ajaxUrl,
@@ -62,7 +62,7 @@ util.get = function (url, data) {
   );
 };
 
-util.checkStatus = function checkStatus (response) {
+httpUtil.checkStatus = function checkStatus (response) {
   // loading
   // 如果http状态码正常，则直接返回数据
   // console.log(response)
@@ -78,7 +78,7 @@ util.checkStatus = function checkStatus (response) {
   };
 };
 
-util.randNumber = function (n) {
+httpUtil.randNumber = function (n) {
   let rnd = "";
   for (let i = 0 ; i < n ; i++) {
     rnd += Math.floor(Math.random()*10);
@@ -86,7 +86,7 @@ util.randNumber = function (n) {
   return rnd;
 };
 
-export default util;
+export default httpUtil;
 
 
 
