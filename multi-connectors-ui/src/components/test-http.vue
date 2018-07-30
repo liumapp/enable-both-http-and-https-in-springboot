@@ -45,7 +45,15 @@
 </template>
 <script>
 export default {
-  name: 'test-http'
+  name: 'test-http',
+  methods: {
+    submitGet () {
+
+    },
+    submitPost () {
+
+    }
+  }
 }
 </script>
 <style lang="less">
