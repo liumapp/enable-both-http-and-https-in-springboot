@@ -30,7 +30,9 @@
         <Button type="success" @click="submitPost">点我</Button>
       </Col>
       <Col span="2">
-      <Icon type="help-circled" size="25"></Icon>
+        <Tooltip content="Right Center text" placement="right">
+          <Icon type="help-circled" size="25"></Icon>
+        </Tooltip>
       </Col>
     </Row>
     <br>
