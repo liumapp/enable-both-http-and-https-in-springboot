@@ -50,6 +50,24 @@ util.post = function (url, data) {
   )
 };
 
+util.get = function (url, data) {
+  return axios({
+    method: 'get',
+    baseURL: ajaxUrl,
+    url,
+    data: data,
+    timeout: 5000,
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json; charset=UTF-8',
+    }
+  }).then (
+    (response) => {
+      return this.checkStatus(response);
+    }
+  );
+};
+
 util.checkStatus = function checkStatus (response) {
   // loading
   // 如果http状态码正常，则直接返回数据

@@ -44,6 +44,8 @@
   </div>
 </template>
 <script>
+import util from '@/libs/util'
+
 export default {
   name: 'test-http',
   methods: {
@@ -55,6 +57,7 @@ export default {
     }
   }
 }
+
 </script>
 <style lang="less">
 .keep-center {
