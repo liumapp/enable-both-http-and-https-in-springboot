@@ -12,6 +12,8 @@ mybatis:
   mapper-locations: classpath*:mappers/*Mapper.xml
 server:
   port: 2525
+  custom:
+    httpPort: 2626
   ssl:
     key-store: classpath:keystore.p12
     key-store-password: 123456
