@@ -52,7 +52,7 @@
   </div>
 </template>
 <script>
-import util from '@/libs/util'
+import httpUtil from '@/libs/httpUtil'
 
 export default {
   name: 'test-http',
@@ -63,12 +63,12 @@ export default {
   },
   methods: {
     submitGet () {
-      util.httpGet('/get?number=' + 1).then(res => {
+      httpUtil.get('/get?number=' + 1).then(res => {
         this.$Message.success('get result from backend:' + res.data.result);
       });
     },
     submitPost () {
-      util.httpPost('/post', {number: 2}).then(res => {
+      httpUtil.post('/post', {number: 2}).then(res => {
         this.$Message.success('get result from backend:' +res.data.result);
       })
     },

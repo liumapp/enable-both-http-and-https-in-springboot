@@ -18,7 +18,7 @@ httpUtil.title = function (title) {
   window.document.title = title;
 };
 
-const ajaxUrl = 'http://localhost:2525/';
+const ajaxUrl = 'http://localhost:2626/';
 
 httpUtil.ajaxUrl = ajaxUrl;
 
