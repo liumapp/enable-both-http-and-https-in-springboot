@@ -94,8 +94,13 @@
 
 但，如果我既想要https，又想要http呢？
 
-# 同时支持http/https
+## 同时支持http/https
 
+同时支持http/https的原理很简单，让http监听到的请求转发到https即可，所以为此，我们需要配置两个端口：
+
+   server.custom.httpPort和server.port
+   
+httpPort表示http的监听端口，server.port表示https的监听端口   
 
 
     @Value("${server.custom.httpPort}")
